@@ -1,0 +1,26 @@
+'m guessing you are more interested in getting some insight into "why" the cosine similarity works (why it provides a good indication of similarity), rather than "how" it is calculated (the specific operations used for the calculation). If your interest is with the latter, see the reference indicated by Daniel in this post, as well as a related SO Question.
+
+To explain both the how and even more so the why, it is useful, at first, to simplify the problem and to work only in two dimension. Once you get this in 2D, it is easier to think of it in 3 dimensions, and of course harder to imagine in many more dimensions, but by then we can use linear algebra to do the numeric calculations and also to help us think in terms of lines/vectors / "planes" / "spheres" in n dimensions even though we can't draw these.
+
+So... in two dimensions: with regards to text similarity this means that we would focus on two distinct terms, say the words "London" and "Paris", and we'd count how many times each of these word is find in each of the two documents we wish to compare. This gives us, for each document a point in the the x-y plane, for example if Doc1 had Paris once, and London four times, a point at (1,4) would present this document (with regards to this diminutive evaluation of documents). Or, speaking in terms of vectors, this Doc1 document would be an arrow going from the origin to point (1,4). With this image in mind, let's think about what it means to be similar for two documents and how this relate to the vectors.
+
+VERY similar documents (again with regards to this limited set of dimensions) would have the very same number of references to Paris, AND the very same number of references to London, or maybe, they could have the same ratio of these references (say a Document Doc2, with 2 refs to Paris and 8 Refs to London, would also be very similar, only maybe a longer text or somehow more repetitive of the cities' names, but in same proportion: Maybe both documents are guides about London, only making passing references to Paris (and how uncool that city is ;-) Just kidding!!!). Now less similar documents, may too, include references to both cities, but in different proportions, Maybe Doc2 would only cite Paris Once and London 7 times.
+
+Back to our x-y plane, if we draw these hypothetical documents, we see that when they are VERY similar their vectors overlap (though some vectors may be longer), and as they start to have less in common, these vectors start to diverge, to have bigger angle between them.
+
+Bam! by measuring the angle between the vectors, we can get a good idea of their similarity , and, to make things even easier, by taking the Cosine of this angle, we have a nice 0 to 1 (or -1 to 1, depending what and how we account for) value that is indicative of this similarity. The smaller the angle, the bigger (closer to 1) the cosine value, and also the bigger the similarity.
+
+At the extreme, if Doc1 only cites Paris and Doc2 only cites London, the documents have absolutely nothing in common. Doc1 would have its vector on the x-axis, Doc2 on the y-axis, the angle 90 degrees, Cosine 0. (BTW that's what we mean when we say that two things are orthogonal to one another)
+
+Adding dimensions:
+With this intuitive feel for similarity expressed as a small angle (or big cosine), we can now imagine things in 3 dimensions, say bringing in the word "Amsterdam" in the mix. And visualize, quite well, how a document with two references of each would have a vector going in a particular direction and we can see how this direction would compare to a document citing Paris and London 3 times each but not Amsterdam etc.. As said we can try and imagine the this fancy space for 10 or 100 cities, hard to draw, but easy to conceptualize.
+
+I'll wrap up by just saying a few words about the formula itself. As said other references provide good information about the calculations.
+
+Again first in 2 dimensions. The formula for the Cosine of the angle between two vectors is derived from the trigonometric difference (between angle a and angle b)
+
+cos(a - b) = (cos(a) * cos(b)) + (sin (a) * sin(b))
+This formula look very similar to the dot product formula:
+
+Vect1 . Vect2 =  (x1 * x2) + (y1 * y2)
+Where cos(a) matches the x value and sin(a) the y value, for the first vector. etc. The only problem, is that x, y etc. are not exactly the cos and sin values, for these values need to be read on the unit circle. That's where the denominator of the formula kicks in: by dividing by the product of the lengh of these vectors, the x and y coordinates become normalized.

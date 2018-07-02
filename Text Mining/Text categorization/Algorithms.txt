@@ -1,0 +1,20 @@
+A list of commonly used algorithms for classification and clustering:
+
+Decision Trees (based on the idea of information gain) - ID3, C4.5, C5.0
+
+K-means
+Fuzzy C-Means
+LDA - topic clustering
+
+There are many uses for these algorithms sometimes with textual data
+
+Document classification (e.g. determine if a corpus is talking about a certain disease or not)
+News stories are categorized in Google news
+Filing patents into categories
+spam filtering
+Facial recognition
+Sentiment analysis
+
+Naive-Bayes
+Support Vector Machines
+K Nearest Neighbors

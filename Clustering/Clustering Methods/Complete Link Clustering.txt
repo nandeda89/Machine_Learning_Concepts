@@ -1,0 +1,148 @@
+#Clustering
+
+#################      Hierarchical Clustering     ##########################
+
+#rm(list = ls())
+#installed.packages()
+#Required package - stats
+
+getwd()
+setwd("E:/Data Analytics/Statistical Models/Clustering/")
+
+#Read Data
+food <-
+    read.table(
+        "http://www.stat.sc.edu/~hitchcock/foodstuffs.txt",
+        header = T,
+        stringsAsFactors = FALSE
+    )
+attach(food)
+#write.table(food, "food.txt")
+
+#Check Structure and other properties
+nrow(food)
+ncol(food)
+str(food)
+class(food)
+
+head(food)
+tail(food)
+
+Column_Names <- names(food)
+Column_Names
+
+#Cluster function
+#hclust  -  it requires a distance object be input
+
+#Normalize/Standardize data
+
+#install.packages("clusterSim")
+library(clusterSim)
+food.std <-
+    round(data.Normalization(food[,-1], type = "n1", normalization = "column"),
+          2)
+
+# Arguments
+# n0 - without normalization
+# n1 - standardization ((x-mean)/sd)
+
+#Distance measure - Euclidian distances
+#Calculating pairwise Euclidean distances between the (standardized) objects:
+dist.food <- round(dist(food.std), 2)
+dist_food_matrix <- as.matrix(dist.food)
+
+# complete linkage:
+food.complete.link <- hclust(d = dist.food, method = "complete")
+food.complete.link
+
+# Plotting the complete linkage dendrogram:
+plclust(tree = food.complete.link, ylab = "Distance")
+
+plclust(tree = food.complete.link,
+        labels = Food,
+        ylab = "Distance")
+
+plclust(
+    tree = food.complete.link,
+    labels = Food,
+    ylab = "Distance",
+    hang = -1
+)
+
+#'plclust' is deprecated use 'plot' instead
+plot(x = food.complete.link, ylab = "Distance", xlab = "Food")
+
+plot(
+    x = food.complete.link,
+    ylab = "Distance",
+    xlab = "Food",
+    hang = -1
+)
+
+plot(
+    x = food.complete.link,
+    ylab = "Distance",
+    xlab = "Food",
+    hang = -1,
+    labels = Food
+)
+
+#The fixed classification can be visually demonstrated with
+#rect.hclust function
+
+plot(
+    x = food.complete.link,
+    ylab = "Distance",
+    xlab = "Food",
+    hang = -1,
+    labels = Food
+)
+
+rect.hclust(tree = food.complete.link, k = 3)
+
+#We can extract classification in a certain level using function cutree
+food.complete.cutree.by3Clust <- cutree(food.complete.link, k = 3)
+food.complete.cutree.by3Clust  # printing the "clustering vector"
+
+food.complete.clust3 <-
+    lapply(1:3, function(nc)
+        Food[food.complete.cutree.by3Clust == nc])
+food.complete.clust3  # printing the clusters in terms of the Food labels
+
+table(food.complete.cutree.by3Clust)
+
+food.complete.cutree.byHeight5.5 <- cutree(food.complete.link, h = 5.5)
+food.complete.cutree.byHeight5.5  # printing the "clustering vector"
+
+food.complete.clust.byHeight5.5 <-
+    lapply(1:3, function(nc)
+        Food[food.complete.cutree.byHeight5.5 == nc])
+food.complete.clust.byHeight5.5   # printing the clusters in terms of the Food labels
+
+table(food.complete.cutree.byHeight5.5)
+
+# table(cl, cutree(csin, 3))
+#par(mfrow=c(1,3), mar=c(3,4,1,1)+.1)
+#par(mfrow=c(1,1))
+
+############# Visualization of Clusters:
+### Via the scatterplot matrix:
+
+pairs(
+    food[, -1],
+    panel = function(x, y)
+        text(x, y, food.complete.cutree.by3Clust)
+)
+
+
+##################  Reordering a Dendrogram  ##########################
+#R has two alternative dendrogram presentations: the hclust result object
+#and a general dendrogram object. 
+
+food.complete.link.den <- as.dendrogram(food.complete.link)
+plot(
+    x = food.complete.link.den,
+    ylab = "Distance",
+    xlab = "Food"
+)
+

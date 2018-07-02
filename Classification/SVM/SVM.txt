@@ -1,0 +1,6 @@
+https://www.svm-tutorial.com/2016/09/unconstrained-minimization/
+https://www.svm-tutorial.com/2017/10/support-vector-machines-succinctly-released/
+https://datascience.stackexchange.com/questions/13266/understanding-the-math-behind-svm
+https://www.youtube.com/watch?v=7C9ptx68ADM
+https://www.coursera.org/learn/machine-learning/lecture/3eNnh/mathematics-behind-large-margin-classification
+https://brilliant.org/wiki/support-vector-machines/

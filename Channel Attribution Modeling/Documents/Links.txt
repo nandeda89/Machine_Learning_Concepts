@@ -1,0 +1,5 @@
+Article in Analytics Vidhya - with R implementation
+https://www.analyticsvidhya.com/blog/2018/01/channel-attribution-modeling-using-markov-chains-in-r/
+
+An Example from Google Analytics -
+https://www.kaushik.net/avinash/multi-channel-attribution-modeling-good-bad-ugly-models/

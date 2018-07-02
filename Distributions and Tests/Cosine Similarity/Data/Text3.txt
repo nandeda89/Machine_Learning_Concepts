@@ -1,0 +1,21 @@
+TEXT MINING WITH R PROGRAMMING
+
+1.     Data Import
+
+The first thing we did in here to get the text data put to the R programming memory. So I have copied my text files into the folder which is r reads the file from that location. I have tried at first with 25 texts which have 5 different categories such as Cinema, Food, Travel, Sport, and Politic.
+
+English <- system.file(“texts”, “English”, package = “tm”)  #that means you will get the files(text files) in English folder which is subfolder of texts and texts are in package tm.
+
+Corpus representing a collection of text documents. A corpus is an abstract concept, and there can exist several implementations in parallel.
+
+    (writings <- Corpus(DirSource(English),
+
+                    readerControl = list(reader = readPlain,
+
+                                         language = “en”,
+
+                                                             load = TRUE)))
+
+In the code above us, we got the text files all in the writings. readerControl is a function which is used for define attributes of texts files such as define language, which type does the text files have etc…  So the texts files are hold by writings.
+
+The second argument readerControl of the corpus constructor has to be a list with the named compoenents reader and language. The First component reader constructs a text document from elements delivered by a source. The tm package ships with several readers (e.g., readPlain(), readGmane(), readRCV1(),readReut21578XMLasPlain(), readPDF(), readDOC(), . . . ). See getReaders() for an up-to-date list of available readers. Each source has a default reader which can be overridden. E.g., for DirSource the default just reads in the input files and interprets their content as text. Finally, the second component language sets the texts language (preferably using ISO 639-2 codes).

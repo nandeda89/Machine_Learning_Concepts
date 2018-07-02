@@ -1,0 +1,35 @@
+https://www.analyticsvidhya.com/blog/2015/11/quick-introduction-boosting-algorithms-machine-learning/
+http://machinelearningmastery.com/boosting-and-adaboost-for-machine-learning/
+http://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/
+
+http://blog.hackerearth.com/beginners-tutorial-on-xgboost-parameter-tuning-r
+https://www.kaggle.com/tqchen/otto-group-product-classification-challenge/understanding-xgboost-model-on-otto-data
+https://archive.ics.uci.edu/ml/machine-learning-databases/adult/
+http://xgboost.readthedocs.io/en/latest/R-package/xgboostPresentation.html#view-feature-importance-influence-from-the-learnt-model
+
+Algorithm	Error (%)
+My neural network	14.67
+C4.5	15.54
+C4.5-auto	14.46
+C4.5 rules	14.94
+Voted ID3 (0.6)	15.64
+Voted ID3 (0.8)	16.47
+T2	16.84
+1R	19.54
+NBTree	14.10
+CN2	16.00
+HOODG	14.82
+FSS Naive Bayes	14.05
+IDTM (Decision table)	14.46
+Naive-Bayes	16.12
+Nearest-neighbor (1)	21.42
+Nearest-neighbor (3)	20.35
+OC1	15.04
+Pebls	Crashed.
+
+http://blog.hackerearth.com/beginners-tutorial-on-xgboost-parameter-tuning-r
+http://machinelearningmastery.com/caret-r-package-for-applied-predictive-modeling/
+http://xgboost.readthedocs.io/en/latest/R-package/xgboostPresentation.html#view-feature-importance-influence-from-the-learnt-model
+https://www.kaggle.com/nigelcarpenter/allstate-claims-severity/farons-xgb-starter-ported-to-r/code
+https://www.kaggle.com/tqchen/otto-group-product-classification-challenge/understanding-xgboost-model-on-otto-data
+https://www.analyticsvidhya.com/blog/2016/01/xgboost-algorithm-easy-steps/
