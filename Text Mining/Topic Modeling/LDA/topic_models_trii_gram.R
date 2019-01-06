@@ -29,7 +29,7 @@ k<-5
 
 
 #Import user comments file
-usercomments<- read.csv("ChatConcepts.csv", header=TRUE, stringsAsFactors=FALSE,nrow=1000)
+usercomments<- read.csv("Concepts.csv", header=TRUE, stringsAsFactors=FALSE,nrow=1000)
 
 
 #Prepare Corpus

@@ -1,43 +1,28 @@
 https://www.r-bloggers.com/search/markov+chain/
-  http://blog.revolutionanalytics.com/r/
-  https://sookocheff.com/post/nlp/ngram-modeling-with-markov-chains/
-  https://pkghosh.wordpress.com/2011/12/15/similarity-based-recommendation-text-analytic/
-  https://github.com/pranab/avenir
+http://blog.revolutionanalytics.com/r/
+https://sookocheff.com/post/nlp/ngram-modeling-with-markov-chains/
+https://pkghosh.wordpress.com/2011/12/15/similarity-based-recommendation-text-analytic/
+https://github.com/pranab/avenir
 https://pkghosh.wordpress.com/2013/10/21/real-time-fraud-detection-with-sequence-mining/
-  https://pkghosh.wordpress.com/2015/07/06/customer-conversion-prediction-with-markov-chain-classifier/
-  http://setosa.io/ev/markov-chains/
+https://pkghosh.wordpress.com/2015/07/06/customer-conversion-prediction-with-markov-chain-classifier/
+http://setosa.io/ev/markov-chains/
   
   
   
-  library(RODBC)
-
-con <- odbcConnect("SSORDST2", uid="ssp_vdsi", pwd="welcome",rows_at_time = 500)
-
+library(RODBC)
+con <- odbcConnect("S", uid="db_name", pwd="we",rows_at_time = 500)
 sqlSave(con, test_table, "TEST_TABLE")
-
 sqlQuery(con, "select count(*) from TEST_TABLE")
-
 d <- sqlQuery(con, "select * from TEST_TABLE")
-
 close(con)
 
-
 library(Roracle)
-
-drv <- JDBC("oracle.jdbc.OracleDriver",classPath="C:/program files/R/R-3.3.3/library/RJDBC/java/RJDBC.jar", " ")
-
-con <- dbConnect(drv, " jdbc:oracle:thin:@myHost:1522:db", "ssp_vdsi", "welcome")
-
+drv <- JDBC("oracle.jdbc.OracleDriver",classPath="../RJDBC/java/RJDBC.jar", " ")
+con <- dbConnect(drv, "jdbc:oracle:thin:@database:port:schema", "db_name", "we")
 dbWriteTable(con, "TEST_TABLE", test_table)
-
 dbGetQuery(con, "select count(*) from TEST_TABLE")
-
 d <- dbReadTable(con, "TEST_TABLE")
 dbDisconnect(con)
-
-
-
-
 
 library(RJDBC)
 drv <- JDBC("oracle.jdbc.driver.OracleDriver","\\path\\to\\driver\\com\\oracle\\oracle-thin/11.2.0.1.0/oracle-thin-11.2.0.1.0.jar")
@@ -510,7 +495,7 @@ as.character(data[1:5,2:5])
 
 #=============================================================================
 # SET WORKING DIRECTORY TO SOURCE FILE LOCATION
-setwd("H:\\Rcode\\lds_comments_classification")
+setwd("H:\\Rcode\\comments_classification")
 
 #=============================================================================
 

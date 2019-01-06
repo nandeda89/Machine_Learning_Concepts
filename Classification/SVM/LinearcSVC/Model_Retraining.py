@@ -14,7 +14,7 @@ classes = []
 # <document string>,<class>
 
 # Read csv
-df = pd.read_csv(".\\Datasets\\Categories_train_Combined.csv", encoding='cp1252')
+df = pd.read_csv(".\\Datasets\\train_Combined.csv", encoding='cp1252')
 corpus = df["Text"].values.T.tolist()
 classes = df["Category"].values.T.tolist()
 

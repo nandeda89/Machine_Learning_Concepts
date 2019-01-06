@@ -7,7 +7,7 @@ rm(list=ls())
 library(tm)
 library(RTextTools)
 
-setwd("D:\\Transcripts")
+setwd("D:\\scripts")
 getwd()
 data = read.csv("Book1.csv",  # File path
                 sep = ',',                               # Delimiter
